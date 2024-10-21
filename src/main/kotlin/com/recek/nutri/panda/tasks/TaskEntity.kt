@@ -1,11 +1,12 @@
 package com.recek.nutri.panda.tasks
 
-
-import io.quarkus.hibernate.reactive.panache.kotlin.PanacheCompanion
-import io.quarkus.hibernate.reactive.panache.kotlin.PanacheEntity
+import io.quarkus.hibernate.orm.panache.kotlin.PanacheCompanion
+import io.quarkus.hibernate.orm.panache.kotlin.PanacheEntity
 import jakarta.persistence.Entity
+import jakarta.persistence.Table
 
 @Entity
+@Table(name = "tasks")
 class TaskEntity: PanacheEntity() {
     companion object: PanacheCompanion<TaskEntity> {
         fun byName(name: String) = list("name", name)

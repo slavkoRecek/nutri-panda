@@ -22,11 +22,14 @@ dependencies {
     implementation("io.quarkus:quarkus-smallrye-openapi")
     implementation("io.quarkus:quarkus-resteasy-reactive-jackson")  // Use RESTEasy Reactive Jackson
     implementation("io.quarkus:quarkus-resteasy-reactive-kotlin")   // Use RESTEasy Reactive Kotlin
-    implementation("io.smallrye.reactive:mutiny-kotlin")   // mutiny coroutines interoperability
 
-    implementation("io.quarkus:quarkus-reactive-pg-client")
-    implementation("io.quarkus:quarkus-hibernate-reactive-panache-kotlin")
-    implementation("io.quarkus:quarkus-hibernate-reactive")
+//    implementation("io.smallrye.reactive:mutiny-kotlin")
+//    implementation("io.quarkus:quarkus-reactive-pg-client")
+//    implementation("io.quarkus:quarkus-hibernate-reactive-panache-kotlin")
+//    implementation("io.quarkus:quarkus-hibernate-reactive")
+
+    implementation("io.quarkus:quarkus-hibernate-orm-panache-kotlin")
+    implementation("io.quarkus:quarkus-jdbc-postgresql")
 
     testImplementation("io.quarkus:quarkus-junit5")
     testImplementation("io.rest-assured:rest-assured")

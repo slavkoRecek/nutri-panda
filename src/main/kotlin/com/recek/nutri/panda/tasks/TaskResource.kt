@@ -1,6 +1,6 @@
 package com.recek.nutri.panda.tasks
 
-import io.smallrye.mutiny.coroutines.awaitSuspending
+import io.smallrye.common.annotation.Blocking
 import jakarta.ws.rs.GET
 import jakarta.ws.rs.Path
 import jakarta.ws.rs.Produces
@@ -11,9 +11,17 @@ class TaskResource {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    suspend fun getTasks(): List<TaskEntity> {
-    return emptyList()
-    return TaskEntity.listAll().awaitSuspending()
+    fun getTasks(): List<Task> {
+        return loadTasks()
+    }
+
+    fun loadTasks(): List<Task> {
+        return TaskEntity.listAll().map {
+            Task(
+                name = it.name,
+                description = it.description
+            )
+        }
     }
 }
 
