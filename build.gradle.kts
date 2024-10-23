@@ -1,3 +1,6 @@
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
 plugins {
     kotlin("jvm") version "2.0.10"
     kotlin("plugin.allopen") version "2.0.10"
@@ -54,7 +57,10 @@ allOpen {
     annotation("io.quarkus.test.junit.QuarkusTest")
 }
 
-tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
-    kotlinOptions.jvmTarget = JavaVersion.VERSION_21.toString()
-    kotlinOptions.javaParameters = true
+tasks.withType<KotlinCompile> {
+    compilerOptions {
+        jvmTarget.set(JvmTarget.JVM_21)
+        freeCompilerArgs.add("-Xjvm-default=all")
+        javaParameters.set(true)
+    }
 }
