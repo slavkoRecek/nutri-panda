@@ -1,6 +1,6 @@
 package com.recek.nutri.panda.tasks
 
-import io.smallrye.common.annotation.Blocking
+import kotlinx.serialization.Serializable
 import jakarta.ws.rs.GET
 import jakarta.ws.rs.Path
 import jakarta.ws.rs.Produces
@@ -26,4 +26,5 @@ class TaskResource {
 }
 
 
+@Serializable
 data class Task(val name: String, val description: String)

@@ -4,6 +4,8 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
     kotlin("jvm") version "2.0.10"
     kotlin("plugin.allopen") version "2.0.10"
+    // Add Kotlin Serialization plugin
+    kotlin("plugin.serialization") version "2.0.10"
     id("io.quarkus")
 }
 
@@ -23,13 +25,10 @@ dependencies {
     implementation("io.quarkus:quarkus-arc")
 
     implementation("io.quarkus:quarkus-smallrye-openapi")
-    implementation("io.quarkus:quarkus-resteasy-reactive-jackson")  // Use RESTEasy Reactive Jackson
-    implementation("io.quarkus:quarkus-resteasy-reactive-kotlin")   // Use RESTEasy Reactive Kotlin
+    implementation("io.quarkus:quarkus-resteasy-reactive")
+    implementation("io.quarkus:quarkus-resteasy-reactive-kotlin-serialization")
+    implementation("io.quarkus:quarkus-rest-client-reactive-kotlin-serialization")
 
-//    implementation("io.smallrye.reactive:mutiny-kotlin")
-//    implementation("io.quarkus:quarkus-reactive-pg-client")
-//    implementation("io.quarkus:quarkus-hibernate-reactive-panache-kotlin")
-//    implementation("io.quarkus:quarkus-hibernate-reactive")
 
     implementation("io.quarkus:quarkus-hibernate-orm-panache-kotlin")
     implementation("io.quarkus:quarkus-jdbc-postgresql")
